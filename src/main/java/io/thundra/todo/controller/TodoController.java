@@ -62,4 +62,6 @@ public class TodoController {
         service.clearCompletedTodo();
         return ResponseEntity.ok().build();
     }
+    
+    build-error
 }
