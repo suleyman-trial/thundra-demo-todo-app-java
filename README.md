@@ -1,3 +1,5 @@
+not expected any checkrun
+
 # thundra-demo-todo-app-java
 
 ## Running todo app locally
