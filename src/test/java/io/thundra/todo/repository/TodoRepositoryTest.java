@@ -14,6 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
 
+import java.util.concurrent.TimeUnit;
 /**
  * @author tolgatakir
  */
@@ -39,6 +40,8 @@ class TodoRepositoryTest {
         
     @Test
     void testFindByCompletedIsTrue2() {
+            
+        TimeUnit.SECONDS.sleep(60);   
         List<TodoEntity> actual = repository.findByCompletedIsTrue();
         assertThat(actual).extracting(TodoEntity::getId, TodoEntity::getTitle, TodoEntity::isCompleted)
                 .containsExactly(tuple(1L, "Test-1", true), tuple(3L, "Test-3", true))
