@@ -42,7 +42,7 @@ class TodoRepositoryTest {
     void testFindByCompletedIsTrue2() {
             
         try {
-            TimeUnit.SECONDS.sleep(60);
+            TimeUnit.SECONDS.sleep(120);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
