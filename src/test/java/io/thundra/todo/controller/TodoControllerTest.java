@@ -108,7 +108,7 @@ class TodoControllerTest {
                 .andExpect(status().isOk()).andReturn();
         Todo actual = objectMapper.readValue(response.getResponse().getContentAsString(), Todo.class);
         assertThat(actual).extracting(Todo::getId, Todo::getTitle, Todo::isCompleted)
-                .containsExactly(3L, expected.getTitle(), expected.isCompleted());
+                .containsExactly(1L, expected.getTitle(), expected.isCompleted());
     }
 
     @Test
