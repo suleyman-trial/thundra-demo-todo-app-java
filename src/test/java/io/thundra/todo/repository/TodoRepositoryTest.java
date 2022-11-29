@@ -36,5 +36,14 @@ class TodoRepositoryTest {
                 .containsExactly(tuple(1L, "Test-1", true), tuple(3L, "Test-3", true))
                 .hasSize(2);
     }
+        
+    @Test
+    void testFindByCompletedIsTrue2() {
+        List<TodoEntity> actual = repository.findByCompletedIsTrue();
+        assertThat(actual).extracting(TodoEntity::getId, TodoEntity::getTitle, TodoEntity::isCompleted)
+                .containsExactly(tuple(1L, "Test-1", true), tuple(3L, "Test-3", true))
+                .hasSize(2);
+        
+    }
 
 }
