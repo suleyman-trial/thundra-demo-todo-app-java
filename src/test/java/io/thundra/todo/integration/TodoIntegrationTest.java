@@ -113,6 +113,18 @@ class TodoIntegrationTest extends ContextInitializedTest {
         assertThat(actual.getId()).isNotNull().isNotEqualTo(3L);
         assertThat(actual).extracting(Todo::getTitle, Todo::isCompleted).containsExactly("Test-3", true);
     }
+        
+    @Test
+    void testDuplicateTodo2() throws URISyntaxException {
+        URI uri = new URIBuilder("/todos/3/duplicate").build();
+        ResponseEntity<Todo> response = post(uri.toString(), null, Todo.class);
+        assertThat(response).isNotNull();
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Todo actual = response.getBody();
+        assertThat(actual).isNotNull();
+        assertThat(actual.getId()).isNotNull().isNotEqualTo(3L);
+        assertThat(actual).extracting(Todo::getTitle, Todo::isCompleted).containsExactly("Test-1", true);
+    }
 
     @Test
     void testClearCompletedTodo() throws URISyntaxException {
