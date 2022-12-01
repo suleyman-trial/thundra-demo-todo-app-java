@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: Build|Test
     runs-on: ubuntu-latest
     steps:
       - name: Collect Workflow Telemetry
@@ -37,10 +37,10 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
           
-      - name: Build with Maven
+      - name: build-with-maven
         run: mvn clean install
         
-      - name: Analyze Test and/or Coverage Results
+      - name: Analyze Test and Coverage Results
         if: always()
         uses: runforesight/foresight-test-kit-action@v1
         with:
