@@ -40,7 +40,7 @@ jobs:
       - name: build-with-maven
         run: mvn clean install
         
-      - name: Analyze Test and/or Coverage Results
+      - name: Analyze Test and Coverage Results
         if: always()
         uses: runforesight/foresight-test-kit-action@v1
         with:
