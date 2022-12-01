@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: Build|RunForestRun
     runs-on: ubuntu-latest
     steps:
       - name: Collect Workflow Telemetry
@@ -37,7 +37,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
           
-      - name: Build with Maven
+      - name: maven-install
         run: mvn clean install
         
       - name: Analyze Test and/or Coverage Results
