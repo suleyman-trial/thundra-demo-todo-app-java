@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Collect Workflow Telemetry
-        uses: catchpoint/workflow-telemetry-action@v1
+        uses: runforesight/workflow-telemetry-action@v1
           
       - uses: actions/checkout@v3
       - name: Set up JDK 8
